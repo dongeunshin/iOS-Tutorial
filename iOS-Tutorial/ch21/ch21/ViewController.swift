@@ -13,13 +13,13 @@ final class ViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = UICollectionView(
         frame: .zero,
-        collectionViewLayout:
-        UICollectionViewFlowLayout().then {
-            $0.scrollDirection = .horizontal
-            $0.minimumLineSpacing = 8
-            $0.minimumInteritemSpacing = 8
-            $0.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        }
+        collectionViewLayout: createLayout()
+//        UICollectionViewFlowLayout().then {
+//            $0.scrollDirection = .horizontal
+//            $0.minimumLineSpacing = 8
+//            $0.minimumInteritemSpacing = 8
+//            $0.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+//        }
     ).then {
         $0.dataSource = self
         $0.delegate = self
@@ -51,7 +51,7 @@ final class ViewController: UIViewController {
     private func createLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.25),
-            heightDimension: .fractionalWidth(0.25) // 정사각형
+            heightDimension: .fractionalWidth(0.25)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
